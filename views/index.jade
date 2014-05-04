@@ -1,0 +1,6 @@
+extends layout
+
+block content
+	h1 my first data visualization!
+	script.
+		d3.json("http://localhost:3000/skills", draw);
