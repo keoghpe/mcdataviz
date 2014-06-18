@@ -1,124 +1,82 @@
 function draw (data) {
-/*	
-	d3.select("body")
-	.append("ul")
-	.selectAll("li")
-	.data(data)
-	.enter()
-	.append("li")
-	.text(function(d) {
-		return d.skill + ": " + d.grade;
-	});
-
-	d3.selectAll("li")
-	.style("font-weight", function(d) {
-		if (d.grade > 20) {
-			return "normal";
-		} else{
-			return "bold";
-		};
-	});*/
-
-	
-	/*d3.select("body")
-	.append("div")
-	.attr("class","chart")
-	.selectAll(".bar")
-	.data(data)
-	.enter()
-	.append("div")
-	.attr("class","bar")
-	.style("width", function(d) {
-		//console.log(d.grade);
-		return d.grade * 10 + "px";
-	})
-	.style("outline", "1px solid black")
-	.style("background-color", function(d) {
-		if(d.date == "2013-04-07T16:00:00.000Z")
-			return "BurlyWood";
-	})
-	.text(function(d) {
-		return d.skill + ": " + d.grade;
-	});*/
-/*
-	d3.select("body")
-	.append("div")
-	.attr("class","chart")
-	.selectAll("div.line")
-	.data(data)
-	.enter()
-	.append("div")
-	.attr("class","line");
-
-	d3.selectAll("div.line")
-	.append("div")
-	.attr("class", "label")
-	.text(function (d) {
-		return d.skill;
-	});
-
-	d3.selectAll("div.line")
-	.append("div")
-	.attr("class","bar")
-	.style("width", function(d) {
-		return d.grade*0.9 + "%";
-	})
-	.style("background-color", function(d) {
-		if(d.date == "2013-04-07T16:00:00.000Z")
-			return "BurlyWood";
-	})
-	.text(function(d) {
-		return d.grade;
-	});*/
 
 	var margin = 50;
 	var width = 1000;
-	var height = 700;
+	var height = 2000;
 
 	d3.select('body')
 	.append('svg')
 	.attr('width', width)
 	.attr('height', height)
-	.selectAll('circle')
-	.data(data)
-	.enter()
-	.append('circle');
+	.append('g')
+	.attr('class', 'chart');
 
-	var x_extent = d3.extent(data,
-		function(d) {return d.date});
+	drawCircles(data.Angular, 'Angular');
+	drawCircles(data.NodeJS, 'NodeJS');
 
-	var x_scale = d3.scale.linear().domain(x_extent).range([margin, width-margin]);
+	var x_extent = [0,100];
+	
+	var x_scale = d3.scale.linear()
+	.range([margin, width])
+	.domain(x_extent);
 
-
-	var y_extent = d3.extent(data,
-		function(d) {return d.grade});
-
-	var y_scale = d3.scale.linear()
-	.range([height-margin, margin])
-	.domain(y_extent);
-
+	var y_extent = [110, 0];
+	var y_scale = d3.scale.linear().domain(y_extent).range([10, height-margin]);
+	
 	d3.selectAll('circle')
-	.attr('cx', function(d){
-		return x_scale(d.date)})
-	.attr('cy', function(d) {
-		return y_scale(d.grade)
-	});
-
-	d3.selectAll('circle')
-	.attr('r', function(d){
-		return d.grade;
+	.attr('cy', function(d){
+		return y_scale(d.date)})
+	.attr('cx', function(d) {
+		return x_scale(d.grade)
 	})
-	.style('fill', function(d) {
-		if(d.skill == 'Angular')
-			return 'red';
-		if(d.skill == 'Node')
-			return 'blue';
-		if(d.skill == 'Express')
-			return 'green';
-		if(d.skill == 'D3')
-			return 'purple';
-		if(d.skill == 'JQuery')
-			return 'grey';
-	});
+	.attr('r', 5);
 
+	var x_axis = d3.svg.axis().scale(x_scale);
+
+	d3.select('svg').append('g')
+	.attr('class','x axis')
+	.attr('transform', 'translate(0,0l)')
+	.call(x_axis);
+
+	var y_axis = d3.svg.axis().scale(y_scale).orient('left');
+
+	d3.select('svg').append('g')
+	.attr('class', 'y axis')
+	.attr('transform', 'translate('+margin+', 0 )')
+	.call(y_axis);
+
+	d3.select('.x.axis')
+	.append('text')
+	.text('A scale I made up')
+	.attr('x', (width / 2) )
+	.attr('y', margin / 1.5);
+
+	d3.select('.y.axis')
+	.append('text')
+	.text('Time of my life')
+	.attr('transform', 'rotate (-90, -43, 0) translate(-280)');
+
+	var line = d3.svg.line()
+	.x(function(d) {return x_scale(d.grade)})
+	.y(function(d) {return y_scale(d.date)});
+
+	drawLines(data.Angular, 'Angular');
+	drawLines(data.NodeJS, 'NodeJS');
+	
+
+	function drawCircles (thedata, className) {
+		d3.select('svg')
+		.selectAll('circle.'+className)
+		.data(thedata)
+		.enter()
+		.append('circle')
+		.attr('class', className);
+	}
+
+	function drawLines (thedata, className) {
+
+		d3.select('svg').append('path')
+		.attr('d', line(thedata))
+		.attr('class', className);
+	}
 }

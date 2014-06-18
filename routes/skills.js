@@ -9,173 +9,97 @@
 	new Date()
 ];*/
 
-var dates = [ 10, 20, 30
+var dates = [ 10, 20, 30, 40, 50, 60, 70, 80, 90, 100
 ];
 
 for (var i = 0; i < dates.length; i++) {
 	console.log(dates[i]);
 };
-var skills = [{
-	skill:"Angular",
-	category: "Javascript",
-	grade: 20,
-	milestone: "",
-	date: dates[0],
-	summary: ""
-},
-{
-	skill:"Node",
-	category: "Javascript",
-	grade: 40,
-	milestone: "",
-	date: dates[0],
-	summary: ""
-},
-{
-	skill:"Express",
-	category: "Javascript",
-	grade: 30,
-	milestone: "",
-	date: dates[0],
-	summary: ""
-},
-{
-	skill:"D3",
-	category: "Javascript",
-	grade: 50,
-	milestone: "",
-	date: dates[0],
-	summary: ""
-},
-{
-	skill:"JQuery",
-	category: "Javascript",
-	grade: 80,
-	milestone: "",
-	date: dates[0],
-	summary: ""
-},
-{
-	skill:"Core Javascript",
-	category: "Javascript",
-	grade: 60,
-	milestone: "",
-	date: dates[0],
-	summary: ""
-},
-{
-	skill:"Socket IO",
-	category: "Javascript",
-	grade: 10,
-	milestone: "",
-	date: dates[0],
-	summary: ""
-},
-{
-	skill:"Angular",
-	category: "Javascript",
-	grade: 30,
-	milestone: "",
-	date: dates[1],
-	summary: ""
-},
-{
-	skill:"Node",
-	category: "Javascript",
-	grade: 10,
-	milestone: "",
-	date: dates[1],
-	summary: ""
-},
-{
-	skill:"Express",
-	category: "Javascript",
-	grade: 10,
-	milestone: "",
-	date: dates[1],
-	summary: ""
-},
-{
-	skill:"D3",
-	category: "Javascript",
-	grade: 20,
-	milestone: "",
-	date: dates[1],
-	summary: ""
-},
-{
-	skill:"JQuery",
-	category: "Javascript",
-	grade: 30,
-	milestone: "",
-	date: dates[1],
-	summary: ""
-},
-{
-	skill:"Core Javascript",
-	category: "Javascript",
-	grade: 10,
-	milestone: "",
-	date: dates[1],
-	summary: ""
-},
-{
-	skill:"Socket IO",
-	category: "Javascript",
-	grade: 10,
-	milestone: "",
-	date: dates[1],
-	summary: ""
-},
-{
-	skill:"Node",
-	category: "Javascript",
-	grade: 10,
-	milestone: "",
-	date: dates[2],
-	summary: ""
-},
-{
-	skill:"Express",
-	category: "Javascript",
-	grade: 10,
-	milestone: "",
-	date: dates[2],
-	summary: ""
-},
-{
-	skill:"D3",
-	category: "Javascript",
-	grade: 20,
-	milestone: "",
-	date: dates[2],
-	summary: ""
-},
-{
-	skill:"JQuery",
-	category: "Javascript",
-	grade: 30,
-	milestone: "",
-	date: dates[2],
-	summary: ""
-},
-{
-	skill:"Core Javascript",
-	category: "Javascript",
-	grade: 10,
-	milestone: "",
-	date: dates[2],
-	summary: ""
-},
-{
-	skill:"Socket IO",
-	category: "Javascript",
-	grade: 10,
-	milestone: "",
-	date: dates[2],
-	summary: ""
-}
-];
+var skills = {
+	'Angular' : 
+		[{
+			grade: 12,
+			date: dates[0]
+		},
+		{
+			grade: 18,
+			date: dates[1]
+		},
+		{
+			grade: 16,
+			date: dates[2]
+		},
+		{
+			grade: 40,
+			date: dates[3]
+		},
+		{
+			grade: 36,
+			date: dates[4]
+		},
+		{
+			grade: 52,
+			date: dates[5]
+		},
+		{
+			grade: 60,
+			date: dates[6]
+		},
+		{
+			grade: 80,
+			date: dates[7]
+		},
+		{
+			grade: 78,
+			date: dates[8]
+		},
+		{
+			grade: 65,
+			date: dates[9]
+		}
+		],
+'NodeJS':
+		[{
+			grade: 5,
+			date: dates[0]
+		},
+		{
+			grade: 22,
+			date: dates[1]
+		},
+		{
+			grade: 14,
+			date: dates[2]
+		},
+		{
+			grade: 32,
+			date: dates[3]
+		},
+		{
+			grade: 44,
+			date: dates[4]
+		},
+		{
+			grade: 54,
+			date: dates[5]
+		},
+		{
+			grade: 56,
+			date: dates[6]
+		},
+		{
+			grade: 75,
+			date: dates[7]
+		},
+		{
+			grade: 78,
+			date: dates[8]
+		},
+		{
+			grade: 90,
+			date: dates[9]
+		}]
+};
 
 
 

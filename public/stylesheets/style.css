@@ -1,49 +1,45 @@
 body {
-  /*padding: 50px;*/
   font: 0.7em "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 h1{
 	text-align: center;
 }
-
-div.bar{
-	background-color: DarkRed;
-	color: white;
-	height: 3em;
-	line-height: 3em;
-	padding-right: 1em;
-	margin-bottom: 2px;
-	margin-left: 42%;
-	text-align: right;
+circle{
+	opacity: 0.5;
 }
-div.bar:hover{
-	/*background-color: black;*/
-	/*-webkit-animation: myfirst .1s; /* Chrome, Safari, Opera */
-	/*animation: myfirst .1s infinite;*/
-	
-}
-div.label{
-	height : 3em;
-	line-height: 3em;
-	padding-right: 1em;
-	margin-bottom: 2px;
-	float: left;
-	width: 40%;
-	text-align: right; 	
+circle:hover{
+	opacity: 1;
 }
 
-/* Chrome, Safari, Opera */
-@-webkit-keyframes myfirst
-{
-0% {}
-100% {height: 100px}
+.axis path{
+	fill:none;
+	stroke: black;
+}
+.axis {
+	font-size:8px;
+	font-family:sans-serif;
+}
+.tick{
+	fill:none;
+	stroke:black;
+}
+circle{
+	stroke:black;
+	stroke-width:0.5px;
+}
+circle.NodeJS{
+	fill:MediumSeaGreen;
+}
+circle.Angular{
+	fill:DeepPink;
 }
 
-/* Standard syntax */
-@keyframes myfirst
-{
-0% {}
-100% {height: 100px}
+path.Angular{
+	stroke:DeepPink;
+	fill: none;
 }
-
+path.NodeJS{
+	stroke:MediumSeaGreen;
+	fill: none;
+}
